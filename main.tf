@@ -22,3 +22,22 @@ resource "azurerm_storage_account" "storage" {
     }
 }
 
+resource "azurerm_storage_blob" "html_blob" {
+    name                   = "index.html"
+    storage_account_name   = azurerm_storage_account.storage.name
+    storage_container_name = "$web"
+    type                   = "Block"
+    source                 = "index.html"
+    content_type           = "text/html"
+}
+
+resource "azurerm_storage_blob" "css_blob" {
+    name                   = "style.css"
+    storage_account_name   = azurerm_storage_account.storage.name
+    storage_container_name = "$web"
+    type                   = "Block"
+    source                 = "style.css"
+    content_type           = "text/css"
+}
+
+
