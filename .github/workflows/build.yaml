@@ -1,0 +1,28 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Azure CLI
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Upload html to Azure Storage
+        run: |
+          az storage blob upload --overwrite\
+            --account-name meinemawebsitestorage2 \
+            --container-name \$web \
+            --name index.html \
+            --file index.html \
+            --auth-mode login
