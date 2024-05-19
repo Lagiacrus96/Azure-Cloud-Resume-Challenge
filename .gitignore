@@ -1,2 +1,6 @@
+#Terraform
 .terraform*
 terraform*
+
+#NodeJS
+/visitor_api/node_modules
