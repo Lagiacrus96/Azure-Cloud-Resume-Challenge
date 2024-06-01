@@ -1,6 +1,6 @@
 async function updateVisitorCount() {
     try {
-        const response = await fetch('https://meinema-visitor-counter-api-js.azurewebsites.net/api/VisitorTrigger');
+        const response = await fetch('https://websitefunctionapp-meinemawebsite.azurewebsites.net/api/VisitorTrigger');
         const count = await response.text();
         document.getElementById('visitor-count').innerText = count;
     } catch (error) {

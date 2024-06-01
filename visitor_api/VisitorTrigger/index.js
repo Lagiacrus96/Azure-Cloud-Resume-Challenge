@@ -30,7 +30,7 @@ module.exports = async function (context, req) {
 
         context.res = {
             status: 200,
-            body: `Visitor count for ${visitorId} is ${count}`
+            body: ` ${count}`
         };
     } catch (error) {
         context.log.error("Error processing request:", error.message);
